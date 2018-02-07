@@ -13,6 +13,7 @@ import com.microsoft.azure.keyvault.KeyVaultClient;
 import com.microsoft.azure.keyvault.authentication.KeyVaultCredentials;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 
+
 /**
  * Authenticates to Azure Key Vault by providing a callback to authenticate
  * using adal.
@@ -22,7 +23,7 @@ import com.microsoft.rest.credentials.ServiceClientCredentials;
  */
 public class KeyVaultADALAuthenticator {
 
-	public static KeyVaultClient getAuthentication() {
+	public static KeyVaultClient getAuthenticatedClient() {
 		//Creates the KeyVaultClient using the created credentials.
 		return new KeyVaultClient(createCredentials());
 	}

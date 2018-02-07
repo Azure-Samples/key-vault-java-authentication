@@ -1,11 +1,10 @@
 package com.microsoft;
 
 import java.io.IOException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+
+import org.bouncycastle.operator.OperatorCreationException;
+import org.bouncycastle.pkcs.PKCSException;
 
 import com.microsoft.azure.AzureEnvironment;
 import com.microsoft.azure.CloudException;
@@ -25,7 +24,7 @@ public class Main {
 	
 	private static Azure azure;
 
-	public static void main(String[] args) throws CloudException, IOException, UnrecoverableKeyException, CertificateException, NoSuchAlgorithmException, KeyStoreException, NoSuchProviderException, InterruptedException {
+	public static void main(String[] args) throws CloudException, IOException, CertificateException, OperatorCreationException, PKCSException, InterruptedException {
 		
 		//Asserting that required environment variables are set.
 		assert(System.getenv("AZURE_CLIENT_ID") != null);
@@ -34,7 +33,7 @@ public class Main {
 		authenticateToAzure();
 		
 		//demoing ADAL Auth
-		KeyVaultClient kvClientADALAuth = KeyVaultADALAuthenticator.getAuthentication();
+		KeyVaultClient kvClientADALAuth = KeyVaultADALAuthenticator.getAuthenticatedClient();
 		
 		System.out.println("Creating secret");
 		Vault vaultADAL = createKeyVault();
@@ -45,9 +44,8 @@ public class Main {
 		secretBundle = kvClientADALAuth.getSecret("https://" + vaultADAL.vaultUri(), "auth-sample-secret");
 		System.out.println(secretBundle);
 		
-		
 		//demoing Certificate auth
-		KeyVaultClient kvClientCertAuth = KeyVaultCertificateAuthenticator.getAuthentication(System.getenv("CERTIFICATE_PATH"), System.getenv("CERTIFICATE_PASSWORD"));
+		KeyVaultClient kvClientCertAuth = KeyVaultCertificateAuthenticator.getAuthenticatedClient(System.getenv("CERTIFICATE_PATH"), System.getenv("CERTIFICATE_PASSWORD"));
 		
 		System.out.println("Creating secret");
 		Vault vaultCert = createKeyVault();
