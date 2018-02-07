@@ -41,7 +41,7 @@ For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET must be set.
 
 For certificate authentication, AZURE_CLIENT_ID, CERTIFICATE_PATH and CERTIFICATE_PASSWORD must be set.
 
-5. Run main.java for a sample run through.
+5. Run main.java for a sample run through. This project uses maven so you can do so either through an IDE or on the command line.
 
 
 ## More information
