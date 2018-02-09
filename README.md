@@ -1,57 +1,54 @@
-# Project Name
+---
+services: key-vault
+platforms: java
+author: tiffanyachen
+---
 
-(short, 1-3 sentenced, description of the project)
+# Authentication samples for Azure Key Vault using the Azure Java SDK
 
-## Features
+This sample repo contains sample code demonstrating common mechanisms for authenticating to an Auzure Key Vault vault.
 
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+## Samples in this repo
+* KeyVaultADALAuthenticator -- authenticates to an Azure Key Vault by providing a callback to authenticate using [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-java).
+* KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key.
 
 
-## Demo
+## Running the samples
+1. If not installed, install [Java](https://www.java.com/en/download/help/download_options.xml).
 
-A demo app is included to show how to use the project.
+2. Clone the repository.
+```
+git clone https://github.com/Azure-Samples/key-vault-java-authentication.git
+```
+3. Create an Azure service principal, using
+[Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
+[PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
+or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+Note that if you wish to authenticate with the certificate authenticator the certificate should be saved locally.
 
-To run the demo, follow these steps:
+4. Export these environment variables into your current shell or IDE.
+```
+    AZURE_TENANT_ID={your tenant id}
+    AZURE_CLIENT_ID={your service principal AppID}
+    AZURE_CLIENT_SECRET={your application key}
+    CERTIFICATE_PATH={absolute path to locally stored certificate}
+    CERTIFICATE_PASSWORD={password for locally stored certificate}
+```
 
-(Add steps to start up the demo)
+AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET must be set for general Azure authentication.
 
-1.
-2.
-3.
+For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET must be set.
 
-## Resources
+For certificate authentication, AZURE_CLIENT_ID, CERTIFICATE_PATH and CERTIFICATE_PASSWORD must be set.
 
-(Any additional resources or related projects)
+5. Run main.java for a sample run through. This project uses maven so you can do so either through an IDE or on the command line.
 
-- Link to supporting information
-- Link to similar sample
-- ...
+
+## More information
+
+* [What is Key Vault?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
+* [Get started with Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+* [Azure Key Vault General Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
+* [Azure Key Vault REST API Reference](https://docs.microsoft.com/en-us/rest/api/keyvault/)
+* [Azure SDK for Java Documentation](https://docs.microsoft.com/en-us/java/api/overview/azure/keyvault)
+* [Azure Active Directory Documenation](https://docs.microsoft.com/en-us/azure/active-directory/)
