@@ -9,14 +9,15 @@ author: tiffanyachen
 This sample repo contains sample code demonstrating common mechanisms for authenticating to an Auzure Key Vault vault.
 
 ## Samples in this repo
+* KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key. This is the recommended way to authenticate to Key Vault.
 * KeyVaultADALAuthenticator -- authenticates to an Azure Key Vault by providing a callback to authenticate using [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-java).
-* KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key.
 
 ## Prerequisites
 - Java 1.7+
 - An Azure Service Principal, through [Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
 [PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
 or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+- A self signed certificate, uploaded to your service principal through Azure Portal or Powershell.
 
 ## Running the samples
 1. If not installed, install [Java](https://www.java.com/en/download/help/download_options.xml).
@@ -31,22 +32,40 @@ git clone https://github.com/Azure-Samples/key-vault-java-authentication.git
 or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
 Note that if you wish to authenticate with the certificate authenticator the certificate should be saved locally.
 
+4. [Use an authentication file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md#using-an-authentication-file) to authenticate to the Azure management plane.
+
 4. Export these environment variables into your current shell or IDE.
 ```
-    AZURE_TENANT_ID={your tenant id}
-    AZURE_CLIENT_ID={your service principal AppID}
-    AZURE_CLIENT_SECRET={your application key}
-    CERTIFICATE_PATH={absolute path to locally stored certificate}
-    CERTIFICATE_PASSWORD={password for locally stored certificate}
+    <systemProperties>
+        <systemProperty>
+                <key>AZURE_TENANT_ID</key>
+                <value>{AZURE_TENANT_ID}</value>
+        </systemProperty>
+        <systemProperty>
+                <key>AZURE_CLIENT_ID</key>
+                <value>{AZURE_CLIENT_ID}</value>
+        </systemProperty>
+        <systemProperty>
+                <key>AZURE_AUTH_LOCATION</key>
+                <value>{AZURE_AUTH_LOCATION}</value>
+        </systemProperty>
+        <systemProperty>
+                <key>CERTIFICATE_PATH</key>
+                <value>{CERTIFICATE_PATH}</value>
+        </systemProperty>
+        <systemProperty>
+                <key>CERTIFICATE_PASSWORD</key>
+                <value>{CERTIFICATE_PASSWORD}</value>
+        </systemProperty>
+<systemProperties>
+
 ```
 
-AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET must be set for general Azure authentication.
-
-For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET must be set.
+For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be set.
 
 For certificate authentication, AZURE_CLIENT_ID, CERTIFICATE_PATH and CERTIFICATE_PASSWORD must be set.
 
-5. Run main.java for a sample run through. This project uses maven so you can do so either through an IDE or on the command line.
+5. Run ```mvn clean compile exec:java``` for a sample run through.
 
 
 ## More information
