@@ -34,7 +34,7 @@ Note that if you wish to authenticate with the certificate authenticator the cer
 
 4. [Use an authentication file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md#using-an-authentication-file) to authenticate to the Azure management plane.
 
-4. Export these environment variables into your current shell or IDE.
+4. Add these variables to pom.xml for a demo of certificate authentication. Note that CERTIFICATE_PASSWORD is optional depending on whether or not your .pem file requires a certificate.
 ```
     <systemProperties>
         <systemProperty>
@@ -62,8 +62,6 @@ Note that if you wish to authenticate with the certificate authenticator the cer
 ```
 
 For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be set.
-
-For certificate authentication, AZURE_CLIENT_ID, CERTIFICATE_PATH and CERTIFICATE_PASSWORD must be set.
 
 5. Run ```mvn clean compile exec:java``` for a sample run through.
 
