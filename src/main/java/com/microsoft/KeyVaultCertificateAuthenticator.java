@@ -32,7 +32,6 @@ import com.microsoft.aad.adal4j.AuthenticationContext;
 import com.microsoft.aad.adal4j.AuthenticationResult;
 import com.microsoft.azure.keyvault.KeyVaultClient;
 import com.microsoft.azure.keyvault.authentication.KeyVaultCredentials;
-import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
 
 public class KeyVaultCertificateAuthenticator {
 
@@ -48,13 +47,12 @@ public class KeyVaultCertificateAuthenticator {
 	 *
 	 * @throws InvalidKeySpecException
 	 * @throws InvalidKeyException 
-	 * @throws Base64DecodingException 
-	 * @throws PKCSException 
+	 * @throws PKCSException
 	 * @throws OperatorCreationException 
 	 */
 	public static KeyVaultClient getAuthenticatedClient(String path, String pemPassword) throws CertificateException, OperatorCreationException, IOException, PKCSException {
 
-		final String clientId = System.getenv("AZURE_CLIENT_ID");
+		final String clientId = System.getProperty("AZURE_CLIENT_ID");
 		final KeyCert certificateKey = readPem(path, pemPassword);
 
 		final PrivateKey privateKey = certificateKey.getKey();

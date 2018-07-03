@@ -65,8 +65,8 @@ public class KeyVaultADALAuthenticator {
 	 */
 	private static AuthenticationResult getAccessToken(String authorization, String resource) throws InterruptedException, ExecutionException, MalformedURLException {
 
-		String clientId = System.getenv("AZURE_CLIENT_ID");
-		String clientKey = System.getenv("AZURE_CLIENT_SECRET");
+		String clientId = System.getProperty("AZURE_CLIENT_ID");
+		String clientKey = System.getProperty("AZURE_CLIENT_SECRET");
 
 		AuthenticationResult result = null;
 		
