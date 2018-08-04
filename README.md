@@ -6,7 +6,7 @@ author: tiffanyachen
 
 # Authentication samples for Azure Key Vault using the Azure Java SDK
 
-This sample repo contains sample code demonstrating common mechanisms for authenticating to an Auzure Key Vault vault.
+This sample repo contains sample code demonstrating common mechanisms for authenticating to an Azure Key Vault.
 
 ## Samples in this repo
 * KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key. This is the recommended way to authenticate to Key Vault.
