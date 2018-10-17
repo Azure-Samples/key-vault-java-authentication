@@ -26,13 +26,12 @@ or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-gro
 ```
 git clone https://github.com/Azure-Samples/key-vault-java-authentication.git
 ```
-3. Create an Azure service principal, using
-[Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-[PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
-Note that if you wish to authenticate with the certificate authenticator the certificate should be saved locally.
+3. Create an Azure service principal with a PEM certificate and an authentication file, using
+[Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/):
 
-4. [Use an authentication file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md#using-an-authentication-file) to authenticate to the Azure management plane.
+```bash
+   az ad sp create-for-rbac --name keyvaultsample  --create-cert keyvaultsamplecert.pem --sdk-auth > auth.file
+```
 
 4. Add these variables to pom.xml for a demo of certificate authentication. Note that CERTIFICATE_PASSWORD is optional depending on whether or not your .pem file requires a certificate.
 ```
@@ -58,8 +57,9 @@ Note that if you wish to authenticate with the certificate authenticator the cer
                 <value>{CERTIFICATE_PASSWORD}</value>
         </systemProperty>
 <systemProperties>
-
 ```
+
+`AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `CERTIFICATE_PATH` values may be found inside the newly-created authentication file (i.e. `auth.file` from step 3 above). `AZURE_AUTH_LOCATION` value is the full path of that authentication file.
 
 For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be set.
 
