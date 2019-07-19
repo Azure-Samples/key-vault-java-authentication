@@ -1,7 +1,10 @@
 ---
-services: key-vault
-platforms: java
-author: tiffanyachen
+languages:
+- java
+page_type: sample
+products:
+- azure
+- azure-key-vault
 ---
 
 # Authentication samples for Azure Key Vault using the Azure Java SDK
