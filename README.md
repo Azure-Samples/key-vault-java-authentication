@@ -5,6 +5,7 @@ page_type: sample
 products:
 - azure
 - azure-key-vault
+description: "This sample repo contains sample code demonstrating common mechanisms for authenticating to an Azure Key Vault."
 ---
 
 # Authentication samples for Azure Key Vault using the Azure Java SDK
