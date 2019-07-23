@@ -27,7 +27,7 @@ or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-gro
 1. If not installed, install [Java](https://www.java.com/en/download/help/download_options.xml).
 
 2. Clone the repository.
-```
+```bash
 git clone https://github.com/Azure-Samples/key-vault-java-authentication.git
 ```
 3. Create an Azure service principal, using
@@ -39,7 +39,7 @@ Note that if you wish to authenticate with the certificate authenticator the cer
 4. [Use an authentication file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md#using-an-authentication-file) to authenticate to the Azure management plane.
 
 4. Add these variables to pom.xml for a demo of certificate authentication. Note that CERTIFICATE_PASSWORD is optional depending on whether or not your .pem file requires a certificate.
-```
+```xml
     <systemProperties>
         <systemProperty>
                 <key>AZURE_TENANT_ID</key>
