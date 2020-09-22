@@ -12,10 +12,6 @@ description: "This sample repo contains sample code demonstrating common mechani
 
 This sample repo contains sample code demonstrating common mechanisms for authenticating to an Azure Key Vault.
 
-## Samples in this repo
-* KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key. This is the recommended way to authenticate to Key Vault.
-* KeyVaultADALAuthenticator -- authenticates to an Azure Key Vault by providing a callback to authenticate using [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-java).
-
 ## This sample shows how to do the following operations of Key Vault with Key Vault SDK
 
 * Create key vault
@@ -25,6 +21,10 @@ This sample repo contains sample code demonstrating common mechanisms for authen
 * Create a secret inside the keyvault
 
 * Get the secret
+
+## Samples in this repo
+* KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key. This is the recommended way to authenticate to Key Vault.
+* KeyVaultADALAuthenticator -- authenticates to an Azure Key Vault by providing a callback to authenticate using [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-java).
 
 ## Prerequisites
 - Java 1.7+
