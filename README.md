@@ -18,7 +18,7 @@ This sample repo contains sample code demonstrating common mechanisms for authen
 
 ## This sample shows how to do the following operations of Key Vault with Key Vault SDK
 
-* create key vault
+* Create key vault
 
 * Create a keyvault client using cert based authentication
 
