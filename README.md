@@ -16,22 +16,15 @@ This sample repo contains sample code demonstrating common mechanisms for authen
 * KeyVaultCertificateAuthenticator -- authenticates to an Azure Key Vault through a [service principal with a self signed certificate](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2Fazure%2Fazure-resource-manager%2Ftoc.json&view=azure-cli-latest#create-a-service-principal-with-a-self-signed-certificate). This takes in a pem file with the certificate and private key. This is the recommended way to authenticate to Key Vault.
 * KeyVaultADALAuthenticator -- authenticates to an Azure Key Vault by providing a callback to authenticate using [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-java).
 
-* Create a keyvault client using cert based authentication -- authenticates to keyvault client using certificate.
+## This sample shows how to do the following operations of Key Vault with Key Vault SDK
 
-* Create a secret inside the keyvault -- set a secret in key vault.
+* create key vault
 
-* Get the secret -- getet a secret in key vault.
+* Create a keyvault client using cert based authentication
 
-The key vault SDK package  here is **com.microsoft.azure.azure-keyvault**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the key vault SDK package, please reference to the following examples:
+* Create a secret inside the keyvault
 
-[IdentityReadmeSamples.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/IdentityReadmeSamples.java)- Examples to authenticate to key vault secret client
-
-    - Create a secret client using cert based authentication.
-
-[HelloWorld.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/HelloWorld.java)  - Examples for common key vault tasks:
-
-    - Create a secret inside the keyvault
-    - Get the secret
+* Get the secret
 
 ## Prerequisites
 - Java 1.7+
@@ -86,6 +79,19 @@ For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be se
 
 5. Run ```mvn clean compile exec:java``` for a sample run through.
 
+## Use latest key vault SDK
+
+The key vault SDK package  here is **com.microsoft.azure.azure-keyvault**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the key vault SDK package, please reference to the following examples:
+
+* [IdentityReadmeSamples.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/IdentityReadmeSamples.java)- Examples to authenticate to key vault secret client
+
+    * createClientCertificateCredential: Create a secret client using cert based authentication.
+    * createDefaultAzureCredential: Create a secret client using DefaultAzureCredential.
+
+* [HelloWorld.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/HelloWorld.java)  - Examples for common key vault tasks:
+
+    * Create a secret inside the keyvault
+    * Get the secret
 
 ## More information
 
