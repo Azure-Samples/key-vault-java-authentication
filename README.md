@@ -14,11 +14,11 @@ This sample repo contains sample code demonstrating common mechanisms for authen
 
 ## This sample shows how to do the following operations of Key Vault with Key Vault SDK
 
-* Create key vault
+* Create Key Vault
 
-* Create a keyvault client using cert based authentication
+* Create a key vault client using certificate based authentication
 
-* Create a secret inside the keyvault
+* Create a secret inside the Key Vault
 
 * Get the secret
 
@@ -79,18 +79,15 @@ For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be se
 
 5. Run ```mvn clean compile exec:java``` for a sample run through.
 
-## Use latest key vault SDK
+## Use latest Key Vault SDK
 
-The key vault SDK package  here is **com.microsoft.azure.azure-keyvault**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the key vault SDK package, please reference to the following examples:
+The Key Vault secrets SDK here is **com.azure.azure-security-keyvault-secrets**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the key vault SDK package, please refer to the following examples:
 
-* [IdentityReadmeSamples.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/IdentityReadmeSamples.java)- Examples to authenticate to key vault secret client
+* [IdentityReadmeSamples.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/IdentityReadmeSamples.java) shows multiple ways to authenticate the Key Vault client via DefaultAzureCredential, device code, client secret or certificate in addition to others.
 
-    * createClientCertificateCredential: Create a secret client using cert based authentication.
-    * createDefaultAzureCredential: Create a secret client using DefaultAzureCredential.
+* [HelloWorld.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/HelloWorld.java)  - Examples for common Key Vault tasks:
 
-* [HelloWorld.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/HelloWorld.java)  - Examples for common key vault tasks:
-
-    * Create a secret inside the keyvault
+    * Create a secret inside the Key Vault
     * Get the secret
 
 ## More information
