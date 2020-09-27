@@ -16,7 +16,7 @@ This sample repo contains sample code demonstrating common mechanisms for authen
 
 * Create Key Vault
 
-* Create a key vault client using certificate based authentication
+* Create a Key Vault client using certificate based authentication
 
 * Create a secret inside the Key Vault
 
@@ -81,7 +81,7 @@ For ADAL authentication, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET also must be se
 
 ## Use latest Key Vault SDK
 
-The Key Vault secrets SDK here is **com.azure.azure-security-keyvault-secrets**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the key vault SDK package, please refer to the following examples:
+The Key Vault secrets SDK here is **com.azure.azure-security-keyvault-secrets**, if you are using the [latest](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets) version of the Key Vault SDK package, please refer to the following examples:
 
 * [IdentityReadmeSamples.java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets/IdentityReadmeSamples.java) shows multiple ways to authenticate the Key Vault client via DefaultAzureCredential, device code, client secret or certificate in addition to others.
 
