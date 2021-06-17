@@ -79,7 +79,7 @@ public class KeyVaultADALAuthenticator {
 			Future<AuthenticationResult> future = null;
 
 			//Acquires token based on client ID and client secret.
-			if (clientKey != null && clientKey != null) {
+			if (clientId != null && clientKey != null) {
 				ClientCredential credentials = new ClientCredential(clientId, clientKey);
 				future = context.acquireToken(resource, credentials, null);
 			}
