@@ -8,6 +8,12 @@ products:
 description: "This sample repo contains sample code demonstrating common mechanisms for authenticating to an Azure Key Vault."
 ---
 
+> **Warning**
+> 
+> **THIS DOCUMENT IS OUTDATED AND HAS BEEN DEPRECATED**.
+> 
+> For updated samples on how to authenticate with your Key Vault application, please refer to [this document](https://learn.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme?view=azure-java-stable#authenticate-the-client). For a general overview about the Azure Identity library, see [here](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable). You can also find samples on how to use most types of credentials for authentication [here](https://github.com/Azure-Samples/key-vault-java-authentication).
+
 # Authentication samples for Azure Key Vault using the Azure Java SDK
 
 This sample repo contains sample code demonstrating common mechanisms for authenticating to an Azure Key Vault.
